@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-gyu+a=mzws6uts9#dm35hj_&$w7cm4cj8+&xk9875^jc*+q1#w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['alextodor461.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    'alextodor461.pythonanywhere.com',
+    '127.0.0.1',
+    'localhost',
+]
 
 
 # Application definition
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'film'
 ]
 
 MIDDLEWARE = [
