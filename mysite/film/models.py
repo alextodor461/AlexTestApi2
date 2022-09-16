@@ -15,16 +15,21 @@ class IntegerRangeField(models.IntegerField):
         return super(IntegerRangeField, self).formfield(**defaults)
 
 
-class Film(models.Model):
-    title = models.CharField(max_length=500)
-    description = models.CharField(max_length=500)
-    created_at = models.DateField(default=date.today)
-    rate = IntegerRangeField(min_value=0, max_value=5, default=0, blank=True, null=True)
-    user = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank = True, default = None)
-
-
 class Comments(models.Model):
     title = models.CharField(max_length=500)
     description = models.CharField(max_length=500)
     created_at = models.DateField(default=date.today)
     user = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank = True, default = None)
+
+
+class Film(models.Model):
+    title = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
+    created_at = models.DateField(default=date.today)
+    rate = IntegerRangeField(min_value=0, max_value=5, default=0, blank = True, null = True)
+    comments = models.ForeignKey(Comments, on_delete = models.CASCADE, null = True, blank = True)
+    video_file = models.FileField(upload_to='videos', null = True, blank = True)
+    user = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank = True, default = None)
+
+
+
