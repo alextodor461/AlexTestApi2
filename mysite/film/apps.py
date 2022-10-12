@@ -6,5 +6,5 @@ class FilmConfig(AppConfig):
     name = 'film'
 
     def ready(self):
-        import film.signals
+        from . import signals
 
