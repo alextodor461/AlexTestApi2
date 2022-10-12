@@ -31,5 +31,7 @@ class Film(models.Model):
     video_file = models.FileField(upload_to='videos', null = True, blank = True)
     user = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank = True, default = None)
 
+    def __str__(self):
+        return self.title
 
 
